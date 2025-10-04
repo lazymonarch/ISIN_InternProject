@@ -1,10 +1,13 @@
 import os
+from dotenv import load_dotenv 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 
+load_dotenv()
+
 DATABASE_URL = os.getenv(
     "DATABASE_URL",
-    "mysql+pymysql://root:lakshan1705@127.0.0.1:3333/isin_db"
+    None 
 )
 
 engine = create_engine(DATABASE_URL, pool_pre_ping=True)
